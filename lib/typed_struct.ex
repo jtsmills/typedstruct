@@ -198,6 +198,11 @@ defmodule TypedStruct do
         quote bind_quoted: [types: types] do
           @typep t() :: %__MODULE__{unquote_splicing(types)}
         end
+
+      :attributes ->
+        quote bind_quoted: [types: types] do
+          @type raw() :: %{unquote_splicing(types)}
+        end
     end
   end
 
